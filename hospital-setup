@@ -1,0 +1,108 @@
+First create database:
+-->create database Hospitalmanagement;
+Then:
+-->use Hospitalmanagement;
+To check whether the database tables are created or not use:
+-->show tables;
+
+NOTE:only after creation of tables the database should shows up 
+
+1.Creation of Customer: 
+CREATE TABLE Customer ( 
+C_ID INT PRIMARY KEY, 
+NAME VARCHAR(100), 
+PHONE_NUM VARCHAR(15), 
+NEEDS VARCHAR(255), 
+FEEDBACK TEXT 
+); 
+
+Insertion: 
+INSERT INTO Customer (C_ID, NAME, PHONE_NUM, NEEDS, FEEDBACK) VALUES 
+(101, 'John Doe', '1234567890', 'Vegan', 'Great service!'), 
+(102, 'Jane Smith', '9876543210', 'Allergic to nuts', 'Good experience.'), 
+(103, 'Mark Brown', '4561237890', 'Gluten-free', 'Delicious food.'), 
+(104, 'Lucy Green', '7894561230', 'Wheelchair access', 'Very accommodating.'), 
+(105, 'Emma White', '3216549870', 'Halal food', 'Satisfactory.'), 
+(106, 'Chris Black', '6543219870', 'No dairy', 'Could be better.'), 
+(107, 'Olivia Blue', '1478523690', 'Vegetarian', 'Excellent atmosphere.'), 
+(108, 'Jack Grey', '9632587410', 'Spicy food', 'Too spicy.'); 
+
+2.Creation of  Reservation: 
+CREATE TABLE Reservation ( 
+R_ID INT PRIMARY KEY, 
+C_ID INT, 
+TABLE_NUM INT, 
+STATUS VARCHAR(50), 
+TIME TIMESTAMP 
+); 
+
+Insertion: 
+INSERT INTO Reservation (R_ID, C_ID, TABLE_NUM, STATUS, TIME) VALUES 
+(1, 101, 5, 'Confirmed', '2023-09-13 18:30:00'), 
+(2, 102, 2, 'Cancelled', '2023-09-14 19:00:00'), 
+(3, 103, 3, 'Confirmed', '2023-09-15 20:00:00'), 
+(4, 104, 7, 'Confirmed', '2023-09-16 18:45:00'), 
+(5, 105, 6, 'Waiting', '2023-09-16 19:30:00'), 
+(6, 106, 4, 'Confirmed', '2023-09-17 20:15:00'), 
+(7, 107, 8, 'Waiting', '2023-09-18 18:00:00'), 
+(8, 108, 10, 'Cancelled', '2023-09-19 21:00:00'); 
+
+3.Creation of menu: 
+CREATE TABLE Menu ( 
+M_ID INT PRIMARY KEY, 
+ITEM VARCHAR(100), 
+PRICE DECIMAL(5, 2), 
+AVAILABILITY VARCHAR(50), 
+TYPE VARCHAR(50) 
+); 
+
+Insertion: 
+INSERT INTO Menu (M_ID, ITEM, PRICE, AVAILABILITY, TYPE) VALUES 
+(201, 'Pasta', 12.99, 'Available', 'Main Course'), 
+(202, 'Salad', 8.50, 'Available', 'Appetizer'), 
+(203, 'Steak', 25.99, 'Out of Stock', 'Main Course'), 
+(204, 'Soup', 5.99, 'Available', 'Appetizer'), 
+(205, 'Ice Cream', 4.99, 'Available', 'Dessert'), 
+(206, 'Pizza', 14.99, 'Available', 'Main Course'), 
+(207, 'Fries', 3.99, 'Available', 'Side'), 
+(208, 'Burger', 11.50, 'Available', 'Main Course'); 
+
+4.creation of staff: 
+CREATE TABLE Staff ( 
+S_ID INT PRIMARY KEY, 
+POSITION VARCHAR(50), 
+SALARY DECIMAL(7, 2), 
+NAME VARCHAR(100), 
+GENDER VARCHAR(10) 
+); 
+
+Insertion: 
+INSERT INTO Staff (S_ID, POSITION, SALARY, NAME, GENDER) VALUES 
+(301, 'Chef', 45000.00, 'Tom Hardy', 'Male'), 
+(302, 'Waiter', 30000.00, 'Anna Bell', 'Female'), 
+(303, 'Manager', 60000.00, 'Mike Tyson', 'Male'), 
+(304, 'Cleaner', 25000.00, 'Sara Lee', 'Female'), 
+(305, 'Cashier', 32000.00, 'Tim Rogers', 'Male'), 
+(306, 'Waiter', 29000.00, 'Emma Gold', 'Female'), 
+(307, 'Chef', 48000.00, 'Peter Parker', 'Male'), 
+(308, 'Manager', 61000.00, 'Natasha Romanoff', 'Female'); 
+
+5.creation of billing section: 
+CREATE TABLE Billing_Section ( 
+B_ID INT PRIMARY KEY, 
+TOTAL_AMOUNT DECIMAL(8, 2), 
+PAYMENT_MODE VARCHAR(50), 
+DATE DATE, 
+TAX DECIMAL(5, 2) 
+); 
+
+Insertion: 
+INSERT INTO Billing_Section (B_ID, TOTAL_AMOUNT, PAYMENT_MODE, DATE, TAX) VALUES 
+(401, 150.75, 'Credit Card', '2023-09-13', 15.75), 
+(402, 75.50, 'Cash', '2023-09-14', 7.55), 
+(403, 200.25, 'Debit Card', '2023-09-15', 20.02), 
+(404, 95.99, 'Credit Card', '2023-09-16', 9.59), 
+(405, 180.30, 'Cash', '2023-09-17', 18.03), 
+(406, 45.50, 'Credit Card', '2023-09-18', 4.55), 
+(407, 225.99, 'Online', '2023-09-19', 22.60), 
+(408, 105.75, 'Debit Card', '2023-09-20', 10.58);
